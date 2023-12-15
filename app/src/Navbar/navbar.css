@@ -1,0 +1,84 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #242535;
+
+}
+
+.web-logo {
+    padding: 10px;
+}
+
+.nav-links ul {
+    display: flex;
+    gap: 60px;
+}
+
+.nav-links ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-links ul li a:hover {
+    color: red;
+}
+
+
+/* 
+.button {
+    width: 48px;
+    height: 28px;
+    border-radius: 100px;
+    background: #4B6BFB;
+    border-style: none
+}
+
+.button-icon {
+    display: flex;
+    padding: 6px;
+    margin-left: 15px;
+    border-radius: 100px;
+    background: #FFF;
+    border-style: none
+} */
+/* Add these styles to your CSS file */
+.button {
+    width: 48px;
+    height: 28px;
+    border-radius: 100px;
+    background-color: #4B6BFB;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+
+}
+
+.button-icon {
+    border: none;
+    display: flex;
+    padding: 0px;
+    margin-left: 20px;
+    border-radius: 50px;
+    background: #FFFFFF;
+
+
+    transition: transform 0.3s ease-in-out;
+
+}
+
+.icona {
+    height: 30px;
+    /* Adjust the size as needed */
+    width: 30px;
+    /* Adjust the size as needed */
+
+}
+
+.moveLeft {
+    transform: translateX(-20px);
+
+    /* transform: translateX(-20px); */
+    /* Adjust the distance as needed */
+}
