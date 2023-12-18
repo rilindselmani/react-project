@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react";
-import "./SignInForm.css";
+import "./SignIn.css";
 import img1 from "../Images/img1.jpg";
 
-const SignInForm = ({ toggleForm }) => {
+const SignIn = ({ toggleForm }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
   };
@@ -19,13 +19,12 @@ const SignInForm = ({ toggleForm }) => {
           <input type="text" name="username" placeholder="Username" />
           <input type="password" name="password" placeholder="Password" />
           <input type="submit" value="Login" />
-          <p className="signup">
-            Don't have an account? <Link to="/signup">Sign Up.</Link>
-          </p>
+          <p className="signup">Don't have an account?</p>
+          <Link to="/signup">Sign Up.</Link>
         </form>
       </div>
     </div>
   );
 };
 
-export default SignInForm;
+export default SignIn;

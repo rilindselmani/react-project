@@ -32,7 +32,7 @@ const Navbar = () => {
         </ul>
       </nav>
       <div>
-        <Link to="/login" target="_blank" rel="noreferrer">
+        <Link to="/SignIn" target="_blank" rel="noreferrer">
           <img className="user-login" src={User} alt="User-login"></img>
         </Link>
       </div>

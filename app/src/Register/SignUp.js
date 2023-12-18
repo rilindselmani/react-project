@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./SignUpForm.css";
+import "./SignUp.css";
 import img2 from "../Images/img2.jpg";
 
-const SignUpForm = ({ toggleForm }) => {
+const SignUp = ({ toggleForm }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
   };
@@ -27,7 +27,7 @@ const SignUpForm = ({ toggleForm }) => {
           />
           <input type="submit" value="Sign Up" />
           <p className="signup">
-            Already have an account? <Link to="/signin">Sign In.</Link>
+            Already have an account? <Link to="/login">Sign In.</Link>
           </p>
         </form>
       </div>
@@ -38,4 +38,4 @@ const SignUpForm = ({ toggleForm }) => {
   );
 };
 
-export default SignUpForm;
+export default SignUp;
