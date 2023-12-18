@@ -10,9 +10,12 @@ const Navbar = () => {
 
   const handleClick = () => {
     setClicked(!clicked);
+
+    const body = document.body;
+    body.classList.toggle("dark-mode");
   };
   return (
-    <div className="navbar">
+    <div className={`navbar ${clicked ? "dark-mode" : ""}`}>
       <img className="web-logo" src={Logo} alt="logo" />
       <br />
       <nav className="nav-links">
@@ -29,7 +32,7 @@ const Navbar = () => {
         </ul>
       </nav>
       <div>
-        <Link to="/Signin" target="_blank" rel="noreferrer">
+        <Link to="/login" target="_blank" rel="noreferrer">
           <img className="user-login" src={User} alt="User-login"></img>
         </Link>
       </div>

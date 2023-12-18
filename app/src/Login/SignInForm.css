@@ -1,0 +1,51 @@
+.signinBx {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.signinBx .imgBx {
+    flex: 1 1 50%;
+}
+
+.signinBx .imgBx img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.signinBx .formBx {
+    flex: 1 1 50%;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.signinBx h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 10px 0;
+    color: #333;
+}
+
+.signinBx input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.signinBx input[type="submit"] {
+    background: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.signinBx p.signup {
+    font-size: 14px;
+    color: #333;
+}
+
+.signinBx a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}

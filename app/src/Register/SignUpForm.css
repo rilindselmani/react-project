@@ -1,0 +1,51 @@
+.signupBx {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.signupBx .formBx {
+    flex: 1 1 50%;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.signupBx .formBx h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 10px 0;
+    color: #333;
+}
+
+.signupBx .formBx input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.signupBx .formBx input[type="submit"] {
+    background: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.signupBx .formBx p.signup {
+    font-size: 14px;
+    color: #333;
+}
+
+.signupBx .formBx a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.signupBx .imgBx {
+    flex: 1 1 50%;
+}
+
+.signupBx .imgBx img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
