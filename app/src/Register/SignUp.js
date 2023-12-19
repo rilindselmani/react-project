@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./SignUp.css";
+import { Link } from "react-router-dom";
 import img2 from "../Images/img2.jpg";
 
 const SignUp = ({ toggleForm }) => {
@@ -27,7 +27,7 @@ const SignUp = ({ toggleForm }) => {
           />
           <input type="submit" value="Sign Up" />
           <p className="signup">
-            Already have an account? <Link to="/login">Sign In.</Link>
+            Already have an account? <Link to="login">Sign In.</Link>
           </p>
         </form>
       </div>

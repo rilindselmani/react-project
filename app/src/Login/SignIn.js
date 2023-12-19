@@ -20,7 +20,7 @@ const SignIn = ({ toggleForm }) => {
           <input type="password" name="password" placeholder="Password" />
           <input type="submit" value="Login" />
           <p className="signup">Don't have an account?</p>
-          <Link to="/signup">Sign Up.</Link>
+          <Link to="signup">Sign Up.</Link>
         </form>
       </div>
     </div>
