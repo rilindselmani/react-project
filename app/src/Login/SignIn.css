@@ -1,51 +1,67 @@
-.signinBx {
+.container {
     display: flex;
-    flex-wrap: wrap;
-}
-
-.signinBx .imgBx {
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .signinBx {
+    display: flex;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .signinBx .imgBx {
     flex: 1 1 50%;
-}
-
-.signinBx .imgBx img {
+  }
+  
+  .signinBx .imgBx img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
-
-.signinBx .formBx {
+  }
+  
+  .signinBx .formBx {
     flex: 1 1 50%;
     padding: 40px;
     box-sizing: border-box;
-}
-
-.signinBx h2 {
+  }
+  
+  /* Add styling to the form elements */
+  .signinBx h2 {
     font-size: 24px;
     font-weight: 600;
     margin: 10px 0;
     color: #333;
-}
-
-.signinBx input {
+  }
+  
+  .signinBx .formGroup {
+    margin-bottom: 20px;
+  }
+  
+  .signinBx input {
     width: 100%;
     padding: 10px;
     box-sizing: border-box;
-    margin-bottom: 20px;
-}
-
-.signinBx input[type="submit"] {
+  }
+  
+  .signinBx input[type="submit"] {
     background: #007bff;
     color: #fff;
     cursor: pointer;
-}
-
-.signinBx p.signup {
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .signinBx p.signup {
     font-size: 14px;
     color: #333;
-}
-
-.signinBx a {
+  }
+  
+  .signinBx a {
     color: #007bff;
     text-decoration: none;
     font-weight: bold;
-}
+  }

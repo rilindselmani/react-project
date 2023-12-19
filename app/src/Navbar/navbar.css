@@ -26,29 +26,11 @@
 }
 
 
-/* 
 .button {
     width: 48px;
     height: 28px;
     border-radius: 100px;
-    background: #4B6BFB;
-    border-style: none
-}
-
-.button-icon {
-    display: flex;
-    padding: 6px;
-    margin-left: 15px;
-    border-radius: 100px;
-    background: #FFF;
-    border-style: none
-} */
-/* Add these styles to your CSS file */
-.button {
-    width: 48px;
-    height: 28px;
-    border-radius: 100px;
-    background-color: #4B6BFB;
+    background-color: gray;
     border: none;
     padding: 0;
     cursor: pointer;
@@ -70,21 +52,17 @@
 
 .icona {
     height: 30px;
-    /* Adjust the size as needed */
     width: 30px;
-    /* Adjust the size as needed */
 
 }
 
 .moveLeft {
     transform: translateX(-20px);
 
-    /* transform: translateX(-20px); */
-    /* Adjust the distance as needed */
+   
 }
 .dark-mode {
     background-color: #333;
-    /* Change background color for dark mode */
     color: #fff;
 
 }
