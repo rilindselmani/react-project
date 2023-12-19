@@ -1,5 +1,6 @@
 import React from "react";
 import "./SignUp.css";
+import { useNavigate } from "react";
 import img2 from "../Images/img2.jpg";
 
 const SignUp = () => {
