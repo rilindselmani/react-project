@@ -15,21 +15,6 @@ const SignIn = () => {
   };
 
   return (
-<<<<<<< HEAD
-    <div className="user signinBx">
-      <div className="imgBx">
-        <img src={img1} alt="img1" />
-      </div>
-      <div className="formBx">
-        <form onSubmit={handleSubmit}>
-          <h2>Sign In</h2>
-          <input type="text" name="username" placeholder="Username" />
-          <input type="password" name="password" placeholder="Password" />
-          <input type="submit" value="Login" />
-          <p className="signup">Don't have an account?</p>
-          <Link to="signup">Sign Up.</Link>
-        </form>
-=======
     <div className="container">
       <div className="user signinBx">
         <div className="imgBx">
@@ -51,7 +36,6 @@ const SignIn = () => {
             <Link to="/signup">Sign Up.</Link>
           </form>
         </div>
->>>>>>> 54673d99bcff9bea2f2775c9ba74cadce24dd99e
       </div>
     </div>
   );
