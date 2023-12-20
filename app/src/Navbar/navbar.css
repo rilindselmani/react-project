@@ -3,7 +3,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    background-color: #242535;
+    background-color: rgba(14, 42, 71, 1);
 
 }
 
@@ -22,47 +22,8 @@
 }
 
 .nav-links ul li a:hover {
-    color: red;
+        color: red;
+        transition: color 1s;
 }
 
 
-.button {
-    width: 48px;
-    height: 28px;
-    border-radius: 100px;
-    background-color: gray;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-
-}
-
-.button-icon {
-    border: none;
-    display: flex;
-    padding: 0px;
-    margin-left: 20px;
-    border-radius: 50px;
-    background: #FFFFFF;
-
-
-    transition: transform 0.3s ease-in-out;
-
-}
-
-.icona {
-    height: 30px;
-    width: 30px;
-
-}
-
-.moveLeft {
-    transform: translateX(-20px);
-
-   
-}
-.dark-mode {
-    background-color: #333;
-    color: #fff;
-
-}

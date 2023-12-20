@@ -2,20 +2,10 @@ import { Link } from "react-router-dom";
 import Logo from "../Images/Logo.svg";
 import "./navbar.css";
 import User from "../Images/User.png";
-import Icon from "../Images/Icon.svg";
-import { useState } from "react";
 
 const Navbar = () => {
-  const [clicked, setClicked] = useState(false);
-
-  const handleClick = () => {
-    setClicked(!clicked);
-
-    const body = document.body;
-    body.classList.toggle("dark-mode");
-  };
   return (
-    <div className={`navbar ${clicked ? "dark-mode" : ""}`}>
+    <div className="navbar">
       <img className="web-logo" src={Logo} alt="logo" />
       <br />
       <nav className="nav-links">
@@ -32,18 +22,10 @@ const Navbar = () => {
         </ul>
       </nav>
       <div>
-        <Link to="/login" target="_blank" rel="noreferrer">
+        <Link to="/login">
           <img className="user-login" src={User} alt="User-login"></img>
         </Link>
       </div>
-      <button
-        className={`button ${clicked ? "clicked" : ""}`}
-        onClick={handleClick}
-      >
-        <button className={`button-icon ${clicked ? "moveLeft" : ""}`}>
-          <img className="icona" src={Icon} alt="icona" />
-        </button>
-      </button>
     </div>
   );
 };
