@@ -1,7 +1,8 @@
 import React from "react";
+import Navbar from "../Navbar/Navbar";
 
 const Contact = () => {
-  return <div>Contact</div>;
+  return <Navbar />;
 };
 
 export default Contact;
