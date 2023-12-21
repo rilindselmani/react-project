@@ -1,60 +1,97 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./SignIn.css";
 import img1 from "../Images/img1.jpg";
 
 const SignIn = () => {
   const navigate = useNavigate();
-  const [password, setPassword] = useState("");
-  const [passwordError, setPasswordError] = useState(false);
+  const [credentials, setCredentials] = useState({ email: "", password: "" });
+  const [emailError, setEmailError] = useState(null);
+  const [passwordError, setPasswordError] = useState(null);
 
-  const handleSubmit = (event) => {
+  const submit = async (event) => {
     event.preventDefault();
+    const fetchUrl = "http://localhost:8000/api/user/login";
 
-    if (password.length < 8 || password.length > 16 || !/\d/.test(password)) {
-      setPasswordError(true);
-      return;
-    } else {
-      setPasswordError(false);
+    try {
+      const response = await fetch(fetchUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(credentials),
+      });
+
+      if (!response.ok) {
+        const responseData = await response.json();
+
+        if (response.status === 401) {
+          
+          setEmailError(responseData.emailError || null);
+          setPasswordError(
+            responseData.passwordError ||
+              "Incorrect password. Please try again."
+          );
+        } else {
+          throw new Error("Login failed");
+        }
+      } else {
+        
+        setEmailError(null);
+        setPasswordError(null);
+
+        const data = await response.json();
+        localStorage.setItem("user", JSON.stringify(data));
+
+        
+        navigate("/home"); 
+      }
+    } catch (error) {
+      console.error(error);
     }
+  };
 
-    navigate("/");
+  const handleChange = (type) => (e) => {
+    setCredentials({ ...credentials, [type.toLowerCase()]: e.target.value });
   };
 
   return (
     <div className="container">
-      <div className="user signinBx">
+      <div className="signinBx">
         <div className="imgBx">
-          <img src={img1} alt="img1" />
+          <img src={img1} alt="Background" />
         </div>
         <div className="formBx">
-          <form onSubmit={handleSubmit}>
-            <h2>Sign In</h2>
-            <div className="formGroup">
-              <input type="text" name="username" placeholder="Username" />
+          <form onSubmit={submit} className="signinForm">
+            <h3>Sign In</h3>
+
+            <div className="formGroup mb-3">
+              <label>Email</label>
+              <input
+                type="text"
+                className={`form-control ${emailError ? "is-invalid" : ""}`}
+                placeholder="Enter Email"
+                onChange={handleChange("Email")}
+              />
+              {emailError && <div className="error-message">{emailError}</div>}
             </div>
-            <div className="formGroup">
+            <div className="formGroup mb-3">
+              <label>Password</label>
               <input
                 type="password"
-                name="current-password"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                style={{ border: passwordError ? "1px solid red" : "" }}
+                className={`form-control ${passwordError ? "is-invalid" : ""}`}
+                placeholder="Enter password"
+                onChange={handleChange("Password")}
               />
               {passwordError && (
-                <p style={{ color: "red", fontSize: "12px" }}>
-                  Password must be between 8 and 16 characters long and contain
-                  at least one digit.
-                </p>
+                <div className="error-message">{passwordError}</div>
               )}
             </div>
-            <div className="formGroup">
-              <input type="submit" value="Login" />
+            <div className="d-grid">
+              <button type="submit" className="btn btn-primary">
+                Submit
+              </button>
             </div>
-            <p className="signup">
-              Don't have an account? <Link to="/register">Sign Up.</Link>
-            </p>
           </form>
         </div>
       </div>

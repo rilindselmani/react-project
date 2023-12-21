@@ -8,7 +8,7 @@
 
 .signupBx {
   display: flex;
-    overflow: hidden;
+  overflow: hidden;
     max-width: 800px;
     width: 100%;
     background: #fff;
@@ -23,7 +23,7 @@
 
 .signupBx .formBx {
   padding: 40px;
-    transition: 0.5s;
+  transition: 0.5s;
 }
 
 .signupBx .formBx h2 {
@@ -60,14 +60,14 @@
   width: 100%;
 }
 
-.signup a {
+.signupBx a {
   color: red;
   text-decoration: none;
 }
 
 @media (max-width: 991px) {
   .signupBx {
-      flex-direction: column;
+    flex-direction: column;
     }
   .signupBx .container {
     max-width: 400px;

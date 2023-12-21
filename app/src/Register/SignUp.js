@@ -1,114 +1,119 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./SignUp.css";
 import img2 from "../Images/img2.jpg";
 
 const SignUp = () => {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    age: "",
+    name: "",
+    surname: "",
+  });
+
   const navigate = useNavigate();
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [passwordError, setPasswordError] = useState(false);
-  const [confirmPasswordError, setConfirmPasswordError] = useState(false);
 
-  const handleSubmit = (event) => {
+  const submit = async (event) => {
     event.preventDefault();
+    const fetchUrl = "http://localhost:8000/api/user/";
+    try {
+      const response = await fetch(fetchUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-    // Password validation: between 8 and 16 characters including at least one digit
-    if (password.length < 8 || password.length > 16 || !/\d/.test(password)) {
-      setPasswordError(true);
-    } else {
-      setPasswordError(false);
+      if (!response.ok) {
+        throw new Error("Registration failed");
+      }
+
+      const data = await response.json();
+      localStorage.setItem("user", JSON.stringify(data));
+
+      navigate("/login");
+    } catch (error) {
+      console.error(error);
+      setFormData({
+        ...formData,
+        error: "Registration failed. Please try again.",
+      });
     }
+  };
 
-    // Additional validation, e.g., check if passwords match
-    if (password !== confirmPassword) {
-      setConfirmPasswordError(true);
-      return;
-    } else {
-      setConfirmPasswordError(false);
-    }
-
-    // Perform your form submission logic here
-
-    // Redirect to the login page after successful form submission
-    navigate("/login");
+  const handleChange = (type) => (e) => {
+    setFormData({ ...formData, [type]: e.target.value });
   };
 
   return (
-    <div className="container">
-      <div className="user signupBx">
-        <div className="formBx">
-          <form onSubmit={handleSubmit}>
-            <h2>Create an account</h2>
-            <div className="formGroup">
+    <form onSubmit={submit}>
+      <div className="container">
+        <div className="signupBx">
+          <div className="imgBx">
+            <img src={img2} alt="Background" />
+          </div>
+          <div className="formBx">
+            <h3>Sign Up</h3>
+            <div className="mb-3">
+              <label>Email</label>
               <input
                 type="text"
-                name="username"
-                placeholder="Username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                className="form-control"
+                placeholder="Enter Email"
+                onChange={handleChange("email")}
               />
             </div>
-            <div className="formGroup">
-              <input
-                type="email"
-                name="email"
-                placeholder="Email Address"
-                autoComplete="username"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
-            <div className="formGroup">
+            <div className="mb-3">
+              <label>Password</label>
               <input
                 type="password"
-                name="password"
-                placeholder="Create Password"
-                autoComplete="new-password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                style={{ border: passwordError ? "1px solid red" : "" }}
+                className="form-control"
+                placeholder="Enter password"
+                onChange={handleChange("password")}
               />
-              {passwordError && (
-                <p style={{ color: "red", fontSize: "12px" }}>
-                  Password must be between 8 and 16 characters long and contain
-                  at least one digit.
-                </p>
-              )}
             </div>
-            <div className="formGroup">
+            <div className="mb-3">
+              <label>Name</label>
               <input
-                type="password"
-                name="confirmPassword"
-                placeholder="Confirm Password"
-                autoComplete="new-password"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-                style={{ border: confirmPasswordError ? "1px solid red" : "" }}
+                type="text"
+                className="form-control"
+                placeholder="Enter Name"
+                onChange={handleChange("name")}
               />
-              {confirmPasswordError && (
-                <p style={{ color: "red", fontSize: "12px" }}>
-                  Passwords do not match.
-                </p>
-              )}
             </div>
-            <div className="formGroup">
-              <input type="submit" value="Sign Up" />
+            <div className="mb-3">
+              <label>Surname</label>
+              <input
+                type="tel"
+                className="form-control"
+                placeholder="Enter Surname"
+                onChange={handleChange("surname")}
+              />
             </div>
-            <p className="signup">
-              Already have an account?
-              <Link to="/login">Sign in.</Link>
-            </p>
-          </form>
-        </div>
-        <div className="imgBx">
-          <img src={img2} alt="img2" />
+            <div className="mb-3">
+              <label>Age</label>
+              <input
+                type="tel"
+                className="form-control"
+                placeholder="Enter Age"
+                onChange={handleChange("age")}
+              />
+            </div>
+            <div className="d-grid">
+              <button type="submit" className="btn btn-primary">
+                Submit
+              </button>
+              <p>
+                Already have an account?
+                <Link to="/login">Sign In</Link>
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </form>
   );
 };
 
